@@ -1,5 +1,7 @@
-# Django_31_Tutorial
- 
+# Django 3.1 Tutorial For Beginners
+
+![Django Tutorial For Beginners](https://miro.medium.com/max/1000/1*YT-sRZ4MxOGGiEnZCourMQ.png)
+
 Django is a high-level Python Web framework that encourages rapid development and clean, pragmatic design. Just like Laravel, Django aims to ease the construction of complex, database-driven web applications. Again, in this Django tutorial for beginners, we’ll talk about the key features of Django by building a simple blog.
 
 You can download the source code of this tutorial here.
