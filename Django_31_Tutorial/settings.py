@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -113,8 +114,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_ROOT = '/blog/staticfiles/'
+STATIC_ROOT = 'staticfiles/'
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = '/mediafiles/'
+MEDIA_ROOT = 'mediafiles/'
 MEDIA_URL = '/media/'
