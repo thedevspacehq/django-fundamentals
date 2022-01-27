@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block meta %}
+<meta name="description" content="{{ home.description }}" />
+<title>{{ home.title }}</title>
+{% endblock %}
+
+{% block content %}
+<div class="text-center mt-5">
+    <img src="{{ home.logo }}" width="200px">
+    <h1>{{ home.title }}</h1>
+    <p>{{ home.description }}</p>
+</div>
+{% endblock %}
