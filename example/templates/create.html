@@ -1,14 +1,14 @@
 {% extends 'layout.html' %}
 
 {% block meta %}
-<meta name="description" content="create homepage" />
-<title>Create Homepage</title>
+<meta name="description" content="{{ title }}" />
+<title>{{ title }}</title>
 {% endblock %}
 
 {% block content %}
 <br>
-<form action="/save" method="POST" enctype="multipart/form-data">
-    {{ csrf_field() }}
+<form action="/save/" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
     <div class="mb-3">
         <label for="inputTitle" class="form-label">Website Title</label>
         <input type="text" class="form-control" id="inputTitle" name="title">

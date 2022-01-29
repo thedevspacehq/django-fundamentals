@@ -19,11 +19,11 @@ def test(request):
 """
 
 def show(request):
-    home  = Home.objects.get(pk=0)
+    home  = Home.objects.first()
 
     title = home.title
     description = home.description
-    logo = home.logo
+    logo = home.logo.url
 
     return render(request, 'home.html', {
         'title': title,
@@ -32,21 +32,31 @@ def show(request):
     })
 
 def create(request):
-    title = "Create a new Home"
 
     return render(request, 'create.html', {
-        'title': title,
+        'title': "Create a new Home",
     })
 
 def save(request):
     home = Home(
-        title = request.title,
-        description = request.description,
-        logo = request.logo,
+        title = request.POST.get('title', ''),
+        description = request.POST.get('description', ''),
+        logo = request.FILES['logo'],
     )
 
     home.save()
 
     return render(request, 'success.html', {
         'title': "Success",
+        'description': "Successfully Saved"
+    })
+
+def delete(request):
+    home  = Home.objects.first()
+
+    home.delete()
+
+    return render(request, 'success.html', {
+        'title': "Success",
+        'description': "Successfully Deleted"
     })
