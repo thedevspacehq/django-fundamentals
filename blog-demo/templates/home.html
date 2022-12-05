@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+<title>Page Title</title>
+{% endblock %}
+
+{% block content %}
+<div class="grid grid-cols-4 gap-4 py-10">
+  <div class="col-span-3 grid grid-cols-1">
+    <!-- Featured post -->
+    <div class="mb-4 ring-1 ring-slate-200 rounded-md hover:shadow-md">
+      <a href="{% url 'post' featured_post.slug %}"
+        ><img
+          class="float-left mr-4 rounded-l-md object-cover h-full w-1/3"
+          src="{{ featured_post.featured_image.url }}"
+          alt="..."
+      /></a>
+      <div class="my-4 mr-4 grid gap-2">
+        <div class="text-sm text-gray-500">
+          {{ featured_post.created_at|date:"F j, o" }}
+        </div>
+        <h2 class="text-lg font-bold">{{ featured_post.title }}</h2>
+        <p class="text-base">
+          {{ featured_post.content|striptags|truncatewords:80 }}
+        </p>
+        <a
+          class="bg-blue-500 hover:bg-blue-700 rounded-md p-2 text-white uppercase text-sm font-semibold font-sans w-fit focus:ring"
+          href="{% url 'post' featured_post.slug %}"
+          >Read more →</a
+        >
+      </div>
+    </div>
+
+    {% include "vendor/list.html" %}
+    
+  </div>
+  {% include "vendor/sidebar.html" %}
+</div>
+{% endblock %}
