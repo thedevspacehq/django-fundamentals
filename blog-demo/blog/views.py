@@ -31,7 +31,7 @@ def home(request):
             "posts": posts,
             "categories": categories,
             "tags": tags,
-            "featured_post":featured_post
+            "featured_post": featured_post,
         },
     )
 
@@ -106,17 +106,16 @@ def post(request, slug):
     tags = Tag.objects.all()
 
     # Related Posts
-
-    # Get all the tags related to this article
+    ## Get all the tags related to this article
     post_tags = requested_post.tag.all()
-    # Filter all posts that contain tags that are related to the current post, and exclude the current post
+    ## Filter all posts that contain tags that are related to the current post, and exclude the current post
     related_posts_ids = (
         Post.objects.all()
         .filter(tag__in=post_tags)
         .exclude(id=requested_post.id)
         .values_list("id")
     )
-    print(related_posts_ids)
+
     related_posts = Post.objects.filter(pk__in=related_posts_ids)
 
     return render(
