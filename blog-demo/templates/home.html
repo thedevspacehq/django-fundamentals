@@ -1,10 +1,6 @@
-{% extends 'layout.html' %}
-
-{% block title %}
+{% extends 'layout.html' %} {% block title %}
 <title>Page Title</title>
-{% endblock %}
-
-{% block content %}
+{% endblock %} {% block content %}
 <div class="grid grid-cols-4 gap-4 py-10">
   <div class="col-span-3 grid grid-cols-1">
     <!-- Featured post -->
@@ -32,7 +28,6 @@
     </div>
 
     {% include "vendor/list.html" %}
-    
   </div>
   {% include "vendor/sidebar.html" %}
 </div>
